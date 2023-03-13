@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+// 解决浏览器跨域问题，表示后端资源允许其他资源进行访问
 @Configuration
 public class CorsConfig implements Filter {
     @Override

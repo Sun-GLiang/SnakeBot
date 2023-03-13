@@ -19,6 +19,7 @@ export default {
 
 <!-- css -->
 <style>
+/* 设置背景图片 */
 body {
   background-image: url(@/assets/images/background.png);
   background-size: cover;

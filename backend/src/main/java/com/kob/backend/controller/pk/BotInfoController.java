@@ -8,8 +8,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-@RestController
-@RequestMapping("/pk/")
+@RestController // 返回数据
+@RequestMapping("/pk/") // 映射
 public class BotInfoController {
 
     @RequestMapping("getBotInfo/")

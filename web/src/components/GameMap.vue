@@ -1,6 +1,6 @@
 <template>
-    <div ref="parent" class="gamemap">
-        <canvas ref="canvas"></canvas>
+    <div ref="parent" class="gamemap"> <!-- 保证了parent指向了div -->
+        <canvas ref="canvas" tabindex="0"></canvas>
     </div>
 </template>
 

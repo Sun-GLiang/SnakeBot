@@ -1,4 +1,4 @@
-const GAME_OBJECTS = [];
+const GAME_OBJECTS = []; // 存储所有游戏物体的基类
 
 export class GameObject {
     constructor() {
