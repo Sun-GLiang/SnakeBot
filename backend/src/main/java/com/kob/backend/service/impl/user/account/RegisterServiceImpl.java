@@ -23,18 +23,26 @@ public class RegisterServiceImpl implements RegisterService {
     @Override
     public Map<String, String> register(String username, String password, String confirmedPassword) {
         Map<String, String> map = new HashMap<>();
-
         if (username == null) {
             map.put("error_message", "用户名不能为空");
             return map;
         }
-
         if (password == null || confirmedPassword == null) {
             map.put("error_message", "密码不能为空");
             return map;
         }
 
         username = username.trim();
+        if (username.length() == 0) {
+            map.put("error_message", "用户名不能为空");
+            return map;
+        }
+
+        if (password.length() == 0 || confirmedPassword.length() == 0) {
+            map.put("error_message", "密码不能为空");
+            return map;
+        }
+
         if (username.length() > 100) {
             map.put("error_message", "用户名长度不能大于100");
             return map;
@@ -59,8 +67,7 @@ public class RegisterServiceImpl implements RegisterService {
         }
 
         String encodedPassword = passwordEncoder.encode(password);
-        String photo = "https://yt3.ggpht.com/ArClcyrV4_y-SFhz-kgnW6-RgsJAK54YTzYQ2-BXu1VHA1TAo_E8aVqP3vpxb0Y3306tt1z5s-w=s88-c-k-c0x00ffffff-no-rj-mo";
-
+        String photo = "https://cdn.acwing.com/media/user/profile/photo/1_lg_844c66b332.jpg";
         User user = new User(null, username, encodedPassword, photo);
         userMapper.insert(user);
 

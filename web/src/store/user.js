@@ -6,11 +6,12 @@ export default {
         username: "",
         photo: "",
         token: "",
-        is_login: false
+        is_login: false,
+        pulling_info: true, // 是否正在拉取信息
     },
     getters: {
     },
-    mutations: {
+    mutations: { // 同步函数
         updateUser(state, user) {
             state.id = user.id;
             state.username = user.username;
@@ -26,9 +27,12 @@ export default {
             state.photo = "";
             state.token = "";
             state.is_login = false
+        },
+        update_pulling_info(state, pulling_info) {
+            state.pulling_info = pulling_info;
         }
     },
-    actions: {
+    actions: { // 异步函数
         login(context, data) {
             $.ajax({
                 url: "http://localhost:3000/user/account/token/",
@@ -39,6 +43,7 @@ export default {
                 },
                 success(resp) {
                     if (resp.error_message === "success") {
+                        localStorage.setItem("jwt_token", resp.token);
                         context.commit("updateToken", resp.token);
                         data.success(resp);
                     } else {
@@ -74,7 +79,8 @@ export default {
             })
         },
         logout(context) {
-            context.commit("logout")
+            localStorage.removeItem("jwt_token");
+            context.commit("logout");
         }
     },
     modules: {
