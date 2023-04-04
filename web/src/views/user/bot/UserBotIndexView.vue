@@ -250,7 +250,7 @@ export default {
 
 <style scoped>
 button {
-    width: 20%
+    width: 25%
 }
 
 div.error-message {
