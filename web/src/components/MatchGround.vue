@@ -74,7 +74,7 @@ div.user-photo {
 
 div.user-photo>img {
     border-radius: 50%;
-    width: 30vh;
+    width: 50%;
 }
 
 div.user-name {

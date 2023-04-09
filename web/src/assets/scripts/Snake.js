@@ -11,7 +11,7 @@ export class Snake extends GameObject {
         this.cells = [new Cell(info.r, info.c)]; // 存放蛇的身体，cell[0]存放蛇的眼睛
         this.next_cell = null; // 下一步的目标位置
 
-        this.speed = 5;
+        this.speed = 5; // 每秒走5个格子
         this.direction = -1; // -1表示没有指令；0、1、2、3分别表示上右下左
         this.status = "idle"; // "idle"表示静止，"move"表示争执移动，"die"表示死亡
 
@@ -69,12 +69,6 @@ export class Snake extends GameObject {
         for (let i = k; i > 0; i--) {
             this.cells[i] = JSON.parse(JSON.stringify(this.cells[i - 1]));
         }
-
-        if (!this.gamemap.check_valid(this.next_cell)) {
-            this.status = "die";
-        }
-
-
     }
 
     update_move() {
