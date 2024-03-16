@@ -1,3 +1,4 @@
+// 将用户信息存为全局
 import $ from 'jquery'
 
 export default {

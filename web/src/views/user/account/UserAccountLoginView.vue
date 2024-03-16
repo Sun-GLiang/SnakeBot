@@ -62,7 +62,6 @@ export default {
                         store.dispatch("getinfo", {
                             success() {
                                 router.push({ name: 'home' }); // 登录成功，跳转到home页面
-                                // console.log(store.state.user)
                             }
                         })
                     },
