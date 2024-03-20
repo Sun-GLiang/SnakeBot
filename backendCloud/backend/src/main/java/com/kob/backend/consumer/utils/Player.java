@@ -11,7 +11,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Player {
-    private int id;
+    private Integer id;
+    private Integer botId; // -1表示亲自出马；否则表示AI
+    private String botCode;
     private Integer sx;
     private Integer sy;
     private List<Integer> steps; // 表示每一步的方向
